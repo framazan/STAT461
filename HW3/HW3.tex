@@ -1,0 +1,193 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{custom}
+
+% color boxes
+\usepackage[many]{tcolorbox}
+\tcbuselibrary{theorems}
+\newtcbtheorem{psexample}{Example}{colback=green!10,colframe=green!40!black,fonttitle=\bfseries,breakable,enhanced}{ex}
+\newtcbtheorem{psproblem}{Problem}{colback=blue!10,colframe=blue!40!black,fonttitle=\bfseries,breakable,enhanced}{id}
+\newtcbtheorem{psremark}{Remark}{colback=purple!10,colframe=purple!40!black,fonttitle=\bfseries,breakable,enhanced}{rm}
+\newtcbtheorem{pssolution}{Solution}{colback=orange!10,colframe=orange!40!black,fonttitle=\bfseries,breakable,enhanced}{sn}
+\tcbset{noparskip/.style={before={\par\pagebreak[0]\medskip\parindent=0pt},
+after={\par\medskip}}}
+
+% formatting for problems and solutions
+\definecolor{ptred}{rgb}{0.7,0.1,0.1}
+\newcommand{\ptfmt}[1]{\textbf{\color{ptred}#1\color{black}}}
+\definecolor{advblue}{rgb}{0.1,0.1,0.7}
+\newcommand{\advanced}{\!\textbf{\color{advblue}[A]\color{black}}\ }
+
+\newtheorem*{solution}{Solution}
+\newtheorem*{answer}{Answer}
+
+\makeatletter
+\newtheoremstyle{mystyle}
+{\topsep}               % space above
+{\topsep}               % space below
+{}                      % bodyfont
+{}                      % indent
+{\bfseries}             % headfont
+{}                      % punctuation
+{0.6em}                 % space after head
+{\llap{\hspace{.6em}}\thmname{#1}\thmnumber{ #2}\thmnote{\normalfont{ (#3)}}{\bfseries .}}  %theoremheadspec
+\theoremstyle{mystyle}
+\newtheorem{pproblem}{Problem}
+\makeatother
+
+% clocks for time limits
+\usepackage{clock} 
+\ClockFrametrue\ClockStyle=1
+
+% headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Filip Ramazan}
+\chead{}
+\rhead{STAT 461}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+\newcommand{\psettitle}[1]{
+    \begin{center}
+    \huge \textbf{#1}
+    \end{center}
+}
+
+\linespread{1.03} % give a little extra room
+\setlength{\parindent}{0.2in} % reduce paragraph indent a bit
+
+% uncomment to hide solutions
+% \usepackage{environ}
+% \NewEnviron{hide}{}
+% \let\solution\hide
+% \let\endsolution\endhide
+% \let\answer\hide
+% \let\endanswer\endhide
+
+\begin{document}
+
+\psettitle{Homework \#3}
+
+\noindent
+
+\begin{psproblem}{The Power of the Polynomial}{}
+What is the coefficient of $x^3$ in the expansion of ${(2-3x)}^5$?
+\end{psproblem}
+
+\begin{solution}
+By Newton's binomial formula, we know that \[(a + b)^n = \sum_{k=0}^{n} \dbinom{n}{k} a^{n-k} b^k .\]
+Hence, for $(2-3x)^5$, we know that that for $x^3$, the term is as such: $$\dbinom{5}{2} \cdot {(-3x)}^{(5-2)} \cdot 2^2 =  -\dfrac{5!}{2!\cdot3!} \cdot 27 \cdot 4 \cdot x^3=-1080x^3.$$
+The coffiecient, thus, is \boxed{-1080}.
+\end{solution}
+
+\begin{psproblem}{Coefficients Count}{}
+What is the coefficient of $a^3b^2c^4$ in the expansion of $(a + b + c)^9$?
+\end{psproblem}
+
+\begin{solution}
+We solve for a formula for the trinomial expansion:
+\[(a+\underbrace{b+c}_{=d})^p = \sum_{k=0}^{p} \dbinom{p}{k} a^{p-k} d^k = 
+\sum_{k=0}^{p} \dbinom{p}{k} a^{p-k} (b+c)^{k} =
+\sum_{k=0}^{p} \dbinom{p}{k} a^{p-k} \left( \sum_{i=0}^{k} \dbinom{k}{i} b^{k-i} c^{i} \right).
+\]
+Hence, for $(a+b+c)^9$, we can calculate the coeffcient of $a^3b^2c^4$ as follows: 
+\[
+Ca^3b^2c^4=\dbinom{9}{6}a^{9-6} \left[ \dbinom{6}{4}b^{6-4}c^4 \right] \implies C=\dbinom{9}{6}\dbinom{6}{4}=\dfrac{9!}{6!\cdot3!} \cdot \dfrac{6!}{4!\cdot2!}=20 \cdot 63=\boxed{1260}
+\]
+\end{solution}
+
+\begin{psproblem}{Digit Drama - Odds Edition}{}
+An integer is selected randomly between 100 and 999. What is the probability that the number has distinct digits?
+\end{psproblem}
+
+\begin{solution}
+To pick the first digit, there are 9 options (excluding 0), for the second also 9 (including 0, excluding the first picked digit), and for the third there are 8 options (one excluding the first and second digits). We use the fundamental theorem of probability to calculate the total number of ways we can pick: $9 \cdot 9 \cdot 8 = 648$. Thus, the total probability is: $\dfrac{648}{900}=\boxed{\dfrac{18}{25}}$.
+\end{solution}
+
+\begin{psproblem}{Twin Rivalry}{}
+Three students are selected randomly from a group of twelve, including twins Anna and Brian. What is the probability that Anna is selected, but Brian is not?
+\end{psproblem}
+
+\begin{solution}
+\[ P(\text{Anna selected but not Brian})=\dfrac{\text{favorable outcomes}}{\text{total outcomes}}=
+\dfrac{\dbinom{10}{2}}{\dbinom{12}{3}}=\boxed{\dfrac{9}{44}}
+\]
+We know that there are $\binom{10}{2}$ favorable outcomes because we assume that Anna is already given a spot, and we choose 2 more spots out of 10 people, which excludes Brian.
+\end{solution}
+
+\begin{psproblem}{Marble Mayhem}{}
+Three marbles are selected randomly from a bag containing 6 yellow marbles and 4 green marbles. What is the probability that there will be more green marbles than yellow marbles selected?
+\end{psproblem}
+
+\begin{solution}
+For there to be green marbles than yellow marbles selected, we can either have 3 green and 0 yellow or 2 green and 1 yellow. We calculate the number of favorable outcomes over unfavorable:
+\[
+P=\dfrac{\dbinom{4}{2} \cdot \dbinom{6}{1} + \dbinom{4}{3}}{\dbinom{10}{3}}=\dfrac{6\cdot 6+4}{120}=\boxed{\dfrac{1}{3}}
+\]
+\end{solution}
+
+\begin{psproblem}{Selecting Several Socks}{}
+We select randomly two socks from a drawer containing 4 white socks, 6 blue socks, and 2 red socks. What is the probability that the socks will match?
+\end{psproblem}
+
+\begin{solution}
+\[ P(\text{socks will match}) = \dfrac{\dbinom{4}{2}+\dbinom{6}{2}+\dbinom{2}{2}}{\dbinom{12}{2}}=\dfrac{22}{66}=\boxed{\dfrac{1}{3}}\]
+\end{solution}
+
+\begin{psproblem}{Pair-ly Lucky}{}
+Five cards are dealt from a regular deck of 52 cards. What is the probability of being dealt \textit{one pair}?
+\end{psproblem}
+
+\begin{solution}
+The total amount of ways five cards can be picked is $\binom{52}{5}$. There are 13 ranks, and four identical cards of each rank. Therefore, we can select two cards from each quartet, and select out of the remaining 12 ranks, 3 ranks and one of four cards from each, to avoid any extra pairs. Therefore, we have the following probability:
+\[ P(\text{one pair from a deck})=\dfrac{\dbinom{4}{2} \cdot 13 \cdot \dbinom{12}{3} \cdot 64}{\dbinom{52}{5}} = \dfrac{13 \cdot 6 \cdot 220 \cdot 64}{2598960}=\dfrac{22\cdot13\cdot16}{10829}=\boxed{0.422569}\]
+\end{solution}
+
+
+\begin{psproblem}{One and Done}{}
+\begin{enumerate}[label=\alph*.]
+\item What is the probability of having at least one 1 in four rolls of a die?
+\item What is the probability of having at least one double 1 in 24 rolls of two dice?
+\end{enumerate}
+\end{psproblem}
+
+\begin{solution}
+\leavevmode
+\begin{enumerate}[label=\alph*.]
+\item Having at least one 1 in four rolls is the complement of not having any, so the probability is: 
+\[
+P(\text{at least one 1}) = 1 - \left(\dfrac{5}{6}\right)^4=\boxed{0.51775}
+\]
+\item Having at least one double 1 in twenty-four rolls is the complement of not having any, so the probability is:
+\[
+P(\text{at least one double 1})=1-\left( \dfrac{35}{36} \right) ^4=\boxed{0.491404}
+\]
+\end{enumerate}
+
+\end{solution}
+
+
+
+
+%\begin{psexample}{Example Title}{}
+%Example
+%\end{psexample}
+%
+%\begin{pssolution*}{}{}
+%Solution
+%\end{pssolution*}
+%
+%\begin{psremark*}{Remark Title}{}
+%Remark
+%\end{psremark*}
+%\begin{pproblem} \clock{0}{30}
+%Problem statement
+%\end{pproblem}
+
+\end{document}
