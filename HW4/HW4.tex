@@ -132,24 +132,88 @@ Plot of $F_Y$:
         domain=0:4,
         samples=100,
         width=10cm,
-        height=7cm
+        height=7cm,
+        grid=major % Adds major gridlines
     ]
-        \addplot[mark=none,blue,thick] coordinates
-        {(0,0) (1,0)};
-        \addplot[mark=*,blue] coordinates {(1,1/36)};
+        \addplot[mark=none,blue,thick] coordinates {(-100,0) (1,0)};
+        \addplot[only marks,mark=o,blue,thick] coordinates {(2,1/36)}; % Empty circle at discontinuity
+        \addplot[only marks,mark=o,blue,thick] coordinates {(1,0)}; % Empty circle at discontinuity
+        \addplot[mark=*,fill=white,blue] coordinates {(1,1/36)};
         \addplot[mark=none,blue,thick] coordinates {(1,1/36) (2,1/36)};
-        \addplot[mark=*,blue] coordinates {(2,4/9)};
+        \addplot[mark=*,fill=white,blue] coordinates {(2,4/9)};
+        \addplot[only marks,mark=o,blue,thick] coordinates {(3,4/9)}; % Empty circle at discontinuity
         \addplot[mark=none,blue,thick] coordinates {(2,4/9) (3,4/9)};
-        \addplot[mark=*,blue] coordinates {(3,1)};
-        \addplot[mark=none,blue,thick] coordinates {(3,1) (4,1)};
+        \addplot[mark=*,fill=white,blue] coordinates {(3,1)};
+        \addplot[mark=none,blue,thick] coordinates {(3,1) (100,1)};
     \end{axis}
 \end{tikzpicture}
 \end{center}
-
-
-
 \end{enumerate}
 \end{solution}
+
+\begin{psproblem}{Triple Flip Tally}{}
+    A fair coin is flipped three times. Let $Y$ be the number of heads minus the number of tails. Write with justification
+    the probability density function and the cumulative distribution function $F_Y$ of $Y$. Plot the graph of $F_Y$.
+\end{psproblem}
+
+\begin{solution}
+    \leavevmode
+    Probability mass function of $Y$: \[
+    \begin{array}{c|ccccc}
+        y & -3 & -1 & 1 & 3 \\ \hline
+        \rule{0pt}{12pt} % Adds vertical space ONLY to this row without breaking the vertical line
+        P(Y = y) & \frac{1}{8} & \frac{3}{8} & \frac{3}{8} & \frac{1}{8}
+    \end{array}
+    \]
+    To find the probability for each value of $Y$, we use the formula $\binom{3}{\left| x \right|} \x \dfrac{1}{2^3}$.
+    \newline
+    Cumulative distribution function of $Y$:
+    \[
+    F_{Y}(t)=
+     \begin{cases} 
+          0 & t < -3 \\
+          \frac{1}{8} & -3 \le t < -1 \\
+          \frac{1}{2} & -1 \le t < 1 \\
+          \frac{7}{8} & 1 \le t < 3 \\
+          1 & 3 \le t
+       \end{cases}
+    \]
+    Plot of $F_Y$:
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                axis x line=middle, axis y line=middle,
+                xtick={-3,-1,1,3}, ytick={0,1/8,1/2,7/8,1},
+                ymin=-0.1, ymax=1.1, xmin=-4, xmax=4,
+                xlabel={$t$}, ylabel={$F_Y(t)$},
+                domain=-4:4, samples=100, grid=major
+            ]
+            % Draw step function
+            \addplot[blue, thick] coordinates {(-4,0) (-3,0)};
+            \addplot[blue, thick] coordinates {(-3,1/8) (-1,1/8)};
+            \addplot[blue, thick] coordinates {(-1,1/2) (1,1/2)};
+            \addplot[blue, thick] coordinates {(1,7/8) (3,7/8)};
+            \addplot[blue, thick] coordinates {(3,1) (4,1)};
+        
+            % Add open circles for discontinuities
+            \addplot[blue, only marks, mark=o] coordinates {(-3,0) (-1,1/8) (1,1/2) (3,7/8)};
+            
+            % Add filled circles for jumps
+            \addplot[blue, only marks, mark=*] coordinates {(-3,1/8) (-1,1/2) (1,7/8) (3,1)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+
+\end{solution}
+
+\begin{psproblem}{Triple Flip Tally}{}
+    Let $X$ be a discrete random variable which can take only the value $x = 0, 1, 2, 3, 4, 5, 6$ such that the cumulative
+    distribution function is defined by $F_X(x) = \dfrac{x^2 + x}{42}$ for the above values. Find the probability density function of $X$.
+\end{psproblem}
+\begin{psproblem}{}{}
+    Suppose X is a random variable with binomial distribution $B \displaystyle \left( 4, \dfrac{2}{3} \displaystyle \right)$. Find the probability density function of
+    $2X + 1$.
+\end{psproblem}
 
 
 
