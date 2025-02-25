@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1740438991.12147 "/Users/filipr/Desktop/checkpoints/STAT461/HW4/HW4.tex" "HW4.pdf" "HW4" 1740438993.25823 0
-  "/Users/filipr/Desktop/checkpoints/STAT461/HW4/HW4.tex" 1740438993.09171 10339 8e0642aa300ac94536da433a480ba513 ""
+["pdflatex"] 1740445134.92043 "/Users/filipr/Desktop/checkpoints/STAT461/HW4/HW4.tex" "HW4.pdf" "HW4" 1740445136.14654 0
+  "/Users/filipr/Desktop/checkpoints/STAT461/HW4/HW4.tex" 1740445134.74049 11657 81093e504dd5efc7b551c681db28b644 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1246382020 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -37,6 +37,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
@@ -249,9 +250,9 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1727306886.50409 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1727306797 8221424 129650c3684305b5b6d6c0751c72964b ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "HW4.aux" 1740438993.12955 243 0fecbc0bc2394b20ad3a3cf09ec9d5bf "pdflatex"
-  "HW4.out" 1740438992.40724 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "HW4.tex" 1740438993.09171 10339 8e0642aa300ac94536da433a480ba513 ""
+  "HW4.aux" 1740445136.06998 243 f6d37baf71ffc3a57faa6547f1810e96 "pdflatex"
+  "HW4.out" 1740445135.65377 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "HW4.tex" 1740445134.74049 11657 81093e504dd5efc7b551c681db28b644 ""
   "custom.sty" 1739692900.87292 9967 39d43e672560524af51f0ad7b7ceeff7 ""
   (generated)
   "HW4.aux"
