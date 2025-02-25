@@ -275,6 +275,17 @@ Plot of $F_Y$:
         \item Find the probability that exactly $2$ of $20$ randomly chosen items are defective and cannot be repaired.
     \end{enumerate}
 \end{psproblem}
+
+\begin{solution}
+    \leavevmode
+    \begin{enumerate}[label=\alph*.]
+        \item We know $P(R|D)=0.6$ and $P(D)=0.2$, hence we are looking for $P(D \intersect R^{\mathsf{c}}) = P(D)P(R^{\mathsf{c}}|D) 
+        = P(D)(1-P(R|D))= 0.2(1-0.6) = \boxed{0.08}$.
+        \item $X \sim B(20,0.08)$, where $X$ is the number of defective items that cannot be repaired.
+        \\ $P(X=2)=\dbinom{20}{2} (0.08)^2 (0.92)^{18} = \boxed{0.2712}$.
+    \end{enumerate}
+\end{solution}
+
 \begin{psproblem}{}{}
     A distributor receives a large shipment of components. The distributor would like to accept the shipment if 10
     or fewer of the components are defective and to return it otherwise. She decides to sample 10 components and to
