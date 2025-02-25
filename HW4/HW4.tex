@@ -301,6 +301,20 @@ Plot of $F_Y$:
     \end{enumerate}
 \end{psproblem}
 
+\begin{solution}
+    \leavevmode
+    \begin{enumerate}[label=\alph*.]
+        \item $X \sim B(10,0.1)$, where $X$ is the number of defective components in the sample.
+        \\ $P(X>1)=1-P(X=0)-P(X=1)=1-(0.9)^{10}-\dbinom{10}{1}(0.1)(0.9)^9 = \boxed{0.2639}$.
+        \item $X \sim B(10,0.2)$, where $X$ is the number of defective components in the sample.
+        \\ $P(X>1)=1-P(X=0)-P(X=1)=1-(0.8)^{10}-\dbinom{10}{1}(0.2)(0.8)^9 = \boxed{0.7316}$.
+        \item Now, $X \sim B(y,0.2)$, where $y$ is the number of items she samples. We want to find
+        the smallest integer $y$ such that $P(X=0) < 0.01$.
+        This means we solve $(0.8)^y < 0.01 \iff y>\log_{0.8}0.01 \implies y>20.6377$.
+        Hence, we need to sample at least $\boxed{21}$ items.
+    \end{enumerate}
+\end{solution}
+
 
 
 
