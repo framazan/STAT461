@@ -256,6 +256,18 @@ Plot of $F_Y$:
         \item What is the most likely number of drivers to come to a full stop among $10$ drivers?
     \end{enumerate}
 \end{psproblem}
+
+\begin{solution}
+    \leavevmode
+    \begin{enumerate}[label=\alph*.]
+        \item $X \sim B(10, 0.3)$
+        \item $P(X = 2) = \dbinom{10}{2} (0.3)^2 (0.7)^8 = \boxed{0.2335}$
+        \item $P(X \ge 2) = 1 - P(X < 2) = 1 - P(X = 0) - P(X = 1) = 1 - (0.7)^{10} - \dbinom{10}{1} (0.3)(0.7)^9 = \boxed{0.8507}$.
+        \item The highest probability in the PMF is that of $P(X=3)=\dbinom{10}{3} (0.3)^3(0.7)^7 = 0.2668$,
+        which means that $\boxed{3}$ is the most likely number of drivers to come to a full stop.
+    \end{enumerate}
+\end{solution}
+
 \begin{psproblem}{}{}
     Of the items manufactured by a certain process, $20\%$ are defective. Of the defective items $60\%$ can be repaired.
     \begin{enumerate}[label=\alph*.]
